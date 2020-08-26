@@ -5,7 +5,6 @@ services:
 
 before_install:
   - docker build -t dockerbaxhen.azurecr.io/azure-docker -f Dockerfile.dev .
-  - echo '${AZURE_PASSWORD}' | docker login -u '${AZURE_WA_USERNAME}' --password-stdin
 
 script:
   - docker run -e CI=true dockerbaxhen.azurecr.io/azure-docker npm run test
