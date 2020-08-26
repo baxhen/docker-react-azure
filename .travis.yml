@@ -8,7 +8,7 @@ before_install:
 
 script:
   - docker run -e CI=true dockerbaxhen.azurecr.io/azure-docker npm run test
-  - docker login -u="$AZURE_USERNAME" -p="$AZURE_PASSWORD";
+  - docker login -u=$AZURE_USERNAME -p=$AZURE_PASSWORD;
   - docker push dockerbaxhen.azurecr.io/azure-docker;
 
 deploy:
