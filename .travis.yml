@@ -15,5 +15,8 @@ deploy:
   password: $AZURE_WA_PASSWORD
   site: $AZURE_WA_SITE
   slot: $AZURE_WA_SLOT
+  script:
+    - docker build -t baxhen/azure-docker .
+    - docker push baxhen/azure-docker
   on:
     branch: master
