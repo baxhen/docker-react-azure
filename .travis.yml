@@ -8,13 +8,9 @@ before_install:
 
 script:
   - docker run -e CI=true dockerbaxhen.azurecr.io/azure-docker npm run test
-after_success:
-  - docker push dockerbaxhen.azurecr.io/azure-docker;
 
 deploy:
-  provider: azure_web_apps
-  username: $AZURE_WA_USERNAME
-  password: $AZURE_WA_PASSWORD
-  site: $AZURE_WA_SITE
+  provider: script
+  script: bash docker_push
   on:
     branch: master
