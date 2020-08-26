@@ -14,9 +14,7 @@ deploy:
   username: $AZURE_WA_USERNAME
   password: $AZURE_WA_PASSWORD
   site: $AZURE_WA_SITE
-  slot: $AZURE_WA_SLOT
-  script:
-    - docker build -t dockerbaxhen.azurecr.io/azure-docker .
-    - docker push dockerbaxhen.azurecr.io/azure-docker
+  edge: true
+
   on:
     branch: master
